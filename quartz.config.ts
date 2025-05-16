@@ -416,7 +416,7 @@ const colorPalettes = {
 // Select your desired palette here
 // Available palettes: original, coolBlues, warmEarth, forestGreen, royalPurple, oceanicTeal, monochrome, vintageCream, devDark, oceanVibes, halloween, neon, sunset, persianAzure, sakuraDreams, cyberpunkCity, autumnGrove
 // type PaletteName = keyof typeof colorPalettes; // This line might cause issues with older TS
-const currentPaletteName: keyof typeof colorPalettes = "royalPurple"
+const currentPaletteName: keyof typeof colorPalettes = "original"
 
 const selectedPalette = colorPalettes[currentPaletteName]
 
@@ -427,7 +427,7 @@ const selectedPalette = colorPalettes[currentPaletteName]
  */
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "بلاگ من",
+    pageTitle: "Davaji Notes",
     pageTitleSuffix: "",
     enableSPA: true,
     enablePopovers: true,
@@ -435,7 +435,7 @@ const config: QuartzConfig = {
       provider: "plausible",
     },
     locale: "fa-IR",
-    baseUrl: "quartz.jzhao.xyz",
+    baseUrl: "davajinotes.ir",
     ignorePatterns: ["private", "templates", ".obsidian"],
     defaultDateType: "modified",
     theme: {
