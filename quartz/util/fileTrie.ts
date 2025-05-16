@@ -8,6 +8,7 @@ interface FileTrieData {
 }
 
 export class FileTrieNode<T extends FileTrieData = ContentDetails> {
+  [x: string]: any
   isFolder: boolean
   children: Array<FileTrieNode<T>>
 

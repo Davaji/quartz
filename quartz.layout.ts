@@ -62,7 +62,12 @@ export const defaultListPageLayout: PageLayout = {
         { Component: Component.Darkmode() },
       ],
     }),
-    Component.Explorer(),
+    Component.Explorer({
+      filterFn: (node) => {
+        // exclude files with the tag "explorerexclude"
+        return node.file?.frontmatter?.tags?.includes("explorerexclude") !== true
+      },
+    }),
   ],
   right: [],
 }
