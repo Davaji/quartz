@@ -62,12 +62,21 @@ export const defaultListPageLayout: PageLayout = {
         { Component: Component.Darkmode() },
       ],
     }),
-    Component.Explorer({
-      filterFn: (node) => {
-        // exclude files with the tag "explorerexclude"
-        return node.file?.frontmatter?.tags?.includes("explorerexclude") !== true
-      },
-    }),
+Component.Explorer({
+  filterFn: (node) => {
+    // حذف فایل‌هایی که دارای تگ explorerexclude هستند
+    if (node.file?.frontmatter?.tags?.includes("explorerexclude") === true) {
+      return false;
+    }
+    
+    // حذف پوشه tags (فیلتر پیش‌فرض کوارتز)
+    if (node.name === "tags") {
+      return false;
+    }
+    
+    return true;
+  }
+}),
   ],
   right: [],
 }
