@@ -13,21 +13,66 @@ footer {
     margin-top: -1rem;
   }
 
-  .logo-div {
+
+  
+
+/*اینارو من برای ویرایش فوتر اضافه کردم*/
+
+
+  footer {
+  padding: 20px 0;
+  margin-top: 30px;
+}
+
+.footer-container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
 }
 
+.logo-div {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
 .logo-link {
-  display: inline-block;
-  margin: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: #f5f5f5;
+  border-radius: 50%;
+  padding: 8px;
+  transition: transform 0.2s;
+}
+
+.logo-link:hover {
+  transform: scale(1.1);
 }
 
 .logo-svg {
-  width: 24px;  /* اندازه ثابت برای آیکون */
-  height: 24px; /* اندازه ثابت برای آیکون */
-  display: block;
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
 }
+
+.about-div {
+  width: 100%;
+  text-align: center;
+}
+
+.about-div a {
+  color: #333;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 5px 10px;
+}
+
+.about-div a:hover {
+  text-decoration: underline;
+}
+
 
 }
