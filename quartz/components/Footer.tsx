@@ -12,6 +12,7 @@ export default ((opts?: Options) => {
     const year = new Date().getFullYear()
     const links = opts?.links ?? []
     return (
+      /* فوتر ویرایش شده و قسمت سی اس اس آن هم ویرایش شده*/
 <footer className={`${displayClass ?? ""}`}>
   <div className="footer-container">
     <div className="logo-div">
