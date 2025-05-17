@@ -38,12 +38,24 @@ export const defaultContentPageLayout: PageLayout = {
         { Component: Component.ReaderMode() },
       ],
     }),
-    Component.Explorer({
-       filterFn: (node) => {
-         // exclude files with the tag "explorerexclude"
-         return node.file?.frontmatter?.tags?.includes("explorerexclude") !== true
-       },
-     }),
+Component.Explorer({
+  filterFn: (node) => {
+    // اگر data وجود نداشت، حذف شود (نمایش داده نشود)
+    if (!node.data) return false;
+    // اگر تگ "explorerexclude" را دارد، حذف شود
+    return !node.data.tags?.includes("explorerexclude");
+  },
+}),
+
+Component.Explorer({
+  mapFn: (node) => {
+    if (node.isFolder) {
+      node.displayName = "📁 " + node.displayName
+    } else {
+      node.displayName = "📄 " + node.displayName
+    }
+  },
+}),
   ],
   right: [
     Component.Graph(),
