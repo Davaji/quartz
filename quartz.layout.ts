@@ -38,7 +38,12 @@ export const defaultContentPageLayout: PageLayout = {
         { Component: Component.ReaderMode() },
       ],
     }),
-    Component.Explorer(),
+    Component.Explorer({
+       filterFn: (node) => {
+         // exclude files with the tag "explorerexclude"
+         return node.file?.frontmatter?.tags?.includes("explorerexclude") !== true
+       },
+     }),
   ],
   right: [
     Component.Graph(),
@@ -63,21 +68,11 @@ export const defaultListPageLayout: PageLayout = {
       ],
     }),
 Component.Explorer({
-        // در اینجا تابع filterFn را اضافه یا ویرایش کنید
-        filterFn: (node) => {
-          // اگر نام فایل یا پوشه با "_" شروع شود، آن را نمایش نده (رفتار پیش‌فرض در برخی تنظیمات)
-          if (node.name.startsWith("_")) {
-            return false
-          }
-          // بررسی فراداده برای تگ 'explorerexclude'
-          if (node.file && node.file.data && node.file.data.frontmatter && node.file.data.frontmatter.tags) {
-            const tags = node.file.data.frontmatter.tags as string[] | undefined;
-            if (Array.isArray(tags) && tags.includes('explorerexclude')) {
-              return false; // این فایل را از Explorer خارج کن
-            }
-          }
-          return true; // در غیر این صورت، فایل را نمایش بده
-        }}),
+       filterFn: (node) => {
+         // exclude files with the tag "explorerexclude"
+         return node.file?.frontmatter?.tags?.includes("explorerexclude") !== true
+       },
+     }),
   ],
   right: [],
 }
