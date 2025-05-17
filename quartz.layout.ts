@@ -68,11 +68,13 @@ export const defaultListPageLayout: PageLayout = {
       ],
     }),
 Component.Explorer({
-       filterFn: (node) => {
-         // exclude files with the tag "explorerexclude"
-         return node.file?.frontmatter?.tags?.includes("explorerexclude") !== true
-       },
-     }),
+  filterFn: (node) => {
+    // اگر data وجود نداشت، حذف شود (نمایش داده نشود)
+    if (!node.data) return false;
+    // اگر تگ "explorerexclude" را دارد، حذف شود
+    return !node.data.tags?.includes("explorerexclude");
+  },
+}),
   ],
   right: [],
 }
