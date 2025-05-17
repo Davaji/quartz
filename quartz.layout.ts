@@ -75,6 +75,17 @@ Component.Explorer({
     return !node.data.tags?.includes("explorerexclude");
   },
 }),
+
+Component.Explorer({
+  mapFn: (node) => {
+    if (node.isFolder) {
+      node.displayName = "📁 " + node.displayName
+    } else {
+      node.displayName = "📄 " + node.displayName
+    }
+  },
+}),
+
   ],
   right: [],
 }
