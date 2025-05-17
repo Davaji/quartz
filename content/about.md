@@ -1,7 +1,7 @@
 ---
 title: درباره‌ی من
-draft: 
+draft: false
 tags:
   - explorerexclude
 ---
-هنوز چیزی نمی‌گم.
+هنوز چیزی نگفتم.
